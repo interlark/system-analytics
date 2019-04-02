@@ -5,7 +5,7 @@ import argparse
 def extend_csv(csv_path_input, csv_path_output):
     with open(csv_path_input, 'r') as csvfile:
         csv_reader = csv.reader(csvfile)
-        next(csv_reader, None)  # skip header
+        header = next(csv_reader, None)
         new_rows = []
         for row in csv_reader:
             disciplines = row[13].split(',')
@@ -23,6 +23,7 @@ def extend_csv(csv_path_input, csv_path_output):
 
     with open(csv_path_output, 'w') as csvfile:
         csv_writer = csv.writer(csvfile)
+        csv_writer.writerow(header)
         for row in new_rows:
             csv_writer.writerow(row)
 
@@ -34,4 +35,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     extend_csv(args.source_csv, args.target_csv)
-    #extend_csv('merged.csv', 'merged_extended.csv')
+    # extend_csv('merged.csv', 'merged_extended.csv')
