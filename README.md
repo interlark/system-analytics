@@ -28,7 +28,7 @@ $ git clone https://github.com/interlark/system-analytics && cd system-analytics
 
 #### Подготовка
 ```bash
-$ python3 extend_csv.py merged.py merged_extended.csv
+$ python3 extend_csv.py merged.csv merged_extended.csv
 ```
 
 #### Описание
